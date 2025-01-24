@@ -33,10 +33,17 @@ class petittube:
                 result.append(future.result())
         return result
 
+def format(link):
+    link = link.split('?')[0]
+    link = link.split('/')
+    watchcode = link[len(link)-1]
+    result = "https://www.youtube.com/watch?v=" + watchcode
+    return result
+
 if __name__ == "__main__":
     tube = petittube(30)
     for link in tube.petittube():
-        print(link)
+        print(format(link))
     # for link in tube.petittube_multithreaded(5,2):
     #     print(link)
     
